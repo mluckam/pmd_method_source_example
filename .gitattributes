@@ -1,0 +1,8 @@
+#all files lf by default
+* text eol=lf
+
+#crlf files
+*.bat text eol=crlf
+
+#binary files
+*.jar binary

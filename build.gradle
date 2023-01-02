@@ -1,0 +1,30 @@
+plugins {
+    id "java"
+    id "pmd"
+}
+
+group "org.example"
+version "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+}
+
+pmd {
+    consoleOutput = true
+    maxFailures = 0
+
+    ruleSetConfig = resources.text.fromFile("config/pmd/pmd-ruleset.xml")
+    ruleSets = []
+    toolVersion = "$pmdVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
